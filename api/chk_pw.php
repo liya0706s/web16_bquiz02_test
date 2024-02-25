@@ -8,6 +8,4 @@ if($res){
 }
 echo $res;
 
-
-
 ?>

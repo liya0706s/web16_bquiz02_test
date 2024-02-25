@@ -42,7 +42,7 @@
             acc
         }, (res) => {
             if (parseInt(res) == 0) {
-                alert("查無此帳號");
+                alert("查無帳號");
             } else {
                 $.post('./api/chk_pw.php', {
                     acc,
