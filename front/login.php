@@ -63,6 +63,6 @@
     }
 
     function clean(){
-        $("input").val("");
+        $("input[type='text'],input[type='password']").val("");
     }
 </script>
