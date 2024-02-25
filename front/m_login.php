@@ -2,11 +2,11 @@
     <legend>會員登入</legend>
     <table>
         <tr>
-            <td class="clo">帳號</td>
+            <td class='clo'>帳號</td>
             <td><input type="text" name="acc" id="acc"></td>
         </tr>
         <tr>
-            <td class="clo">密碼</td>
+            <td class='clo'>密碼</td>
             <td><input type="password" name="pw" id="pw"></td>
         </tr>
         <tr>
@@ -21,48 +21,45 @@
         </tr>
     </table>
 </fieldset>
-<script>
-    /**
-    登入的函式
-    1. 取得帳號密碼的值
-    2. 發送POST請求到chk_acc.php檢查帳號是否正確
-    3. 如果回傳的值是0代表:查無此帳號
-    
-    4. 否則(帳號正確)再發送POST請求到chk_pw.php檢查密碼是否正確
-    5. 如果回傳值是1代表密碼正確
-    6. 如果帳號值是'admin'代表是管理者, 會導向back.php
-    7. 否則導向首頁
-    8. 判斷密碼不是1的否則，彈出視窗:密碼錯誤
-     */
 
+<script>
     function login() {
-        let acc = $("#acc").val()
-        let pw = $("#pw").val()
+        // 取得帳號輸入框的值
+        let acc = $('#acc').val()
+        // 取得密碼輸入框的值
+        let pw = $('#pw').val()
+        // 發送 POST 請求到chk_acc.php 檢查帳號是否存在
         $.post('./api/chk_acc.php', {
             acc
         }, (res) => {
+            // 如果回傳值的結果為0, 表示查無帳號
             if (parseInt(res) == 0) {
-                alert("查無此帳號");
+                alert("查無帳號");
             } else {
+                // 發送 POST 請求到 chk_pw.php 檢查帳號密碼是否正確
                 $.post('./api/chk_pw.php', {
                     acc,
                     pw
                 }, (res) => {
+                    // 如果回傳值的結果為1, 表示密碼正確
                     if (parseInt(res) == 1) {
-                        if ($("acc").val() == 'admin') {
-                            location.href = 'back.php';
+                        // 如果帳號為'admin'，導向後台頁面
+                        if ($("#acc").val() == 'admin') {
+                            location.href = "back.php"
                         } else {
-                            location.href = 'index.php';
+                            // 否則導向首頁
+                            location.href = "index.php"
                         }
                     } else {
-                        alert('密碼錯誤!')
+                        alert("密碼錯誤")
                     }
                 })
             }
         })
     }
 
-    function clean(){
-        $("input").val("");
+    function clean() {
+        // 清除帳號密碼欄位的值
+        $("input[type='text'],input[type='password']").val("");
     }
 </script>
