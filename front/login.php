@@ -49,7 +49,7 @@
                     pw
                 }, (res) => {
                     if (parseInt(res) == 1) {
-                        if ($("acc").val() == 'admin') {
+                        if ($("#acc").val() == 'admin') {
                             location.href = 'back.php';
                         } else {
                             location.href = 'index.php';
