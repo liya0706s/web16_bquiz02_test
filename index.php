@@ -25,7 +25,7 @@
 		</div>
 		<div id="title2">
 			<a href="index.php"><img src="./icon/02B01.jpg" title="健康促進網-回首頁"></a>
-			
+
 		</div>
 		<div id="mm">
 			<div class="hal" id="lef">
@@ -43,6 +43,16 @@
 						<a href="?do=login">會員登入</a>
 					</span>
 					<div class="">
+						<!-- include 前台內容在會員登入之下 -->
+						<?php
+						$do=$_GET['do']??'main';
+						$file="./front/{$do}.php";
+						if(file_exists($file)){
+							include $file;
+						}else{
+							include "./front/main.php";
+						}
+						?>
 					</div>
 				</div>
 			</div>
