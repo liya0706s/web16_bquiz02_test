@@ -1,4 +1,4 @@
-﻿<?php include_once "./api/db.php"?>
+﻿<?php include_once "./api/db.php"; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,19 +19,21 @@
 	<iframe name="back" style="display:none;"></iframe>
 	<div id="all">
 		<div id="title">
-			<?=date("m月d號 l");?> |
-			今日瀏覽: <?=$Total->find(['date'=>date("Y-m-d")])['total'];?> | 
-			累積瀏覽: <?=$Total->sum('total');?> 
+			<?= date("m 月 d 號 l"); ?> |
+			今日瀏覽: <?= $Total->find(['date' => date('Y-m-d')])['total']; ?> |
+			累積瀏覽: <?= $Total->sum('total'); ?>
 		</div>
 		<div id="title2">
-		<img src="./icon/02B01.jpg" title="健康促進網-回首頁">
+			<a href="index.php"><img src="./icon/02B01.jpg" title="健康促進網-回首頁"></a>
+			
 		</div>
 		<div id="mm">
 			<div class="hal" id="lef">
-				<a class="blo" href="?do=po">分類網誌</a>
+				<!-- <a class="blo" href="?do=po">分類網誌</a> -->
+				<a class="blo" href="index.php">回首頁</a>
 				<a class="blo" href="?do=news">最新文章</a>
-				<a class="blo" href="?do=pop">人氣文章</a>
-				<a class="blo" href="?do=know">講座訊息</a>
+				<!-- <a class="blo" href="?do=pop">人氣文章</a>
+				<a class="blo" href="?do=know">講座訊息</a> -->
 				<a class="blo" href="?do=que">問卷調查</a>
 			</div>
 			<div class="hal" id="main">

@@ -85,7 +85,7 @@ class DB
         } else if (is_numeric($id)) {
             $sql .= " where `id`='$id'";
         }
-        $row = $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
     function del($id)
     {
