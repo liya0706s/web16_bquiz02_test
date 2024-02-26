@@ -23,7 +23,7 @@
         padding: 15px;
     }
 
-    .active{
+    .active{ 
         border-bottom: 1px solid white;
         background-color: white;
     }
