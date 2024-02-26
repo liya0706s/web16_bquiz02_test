@@ -22,6 +22,11 @@
         display:none;
         padding: 15px;
     }
+
+    .active{
+        border-bottom: 1px solid white;
+        background-color: white;
+    }
 </style>
 
 <div class="tags">
